@@ -10,6 +10,9 @@
     <script>
         let playerSelection;
         let computerSelection;
+        const numPlay = 3;
+        let numWin = 0; 
+        // let round = 1; 
 
 
         function computerPlay() {
@@ -26,17 +29,22 @@
             computerSelection = computerPlay();
             console.log(`Computer has selected ${computerSelection}`)
 
+            // console.log(round+1)
+
             if (playerSelection === computerSelection) {
                 console.log("Tie! Play again");
             } else if (playerSelection === `rock` && computerSelection === 'scissors'){
+                numWin++;
                 console.log("You win!");
             } else if (playerSelection === `rock` && computerSelection === `paper`){
                 console.log("You lose!");
             } else if (playerSelection === `paper` && computerSelection === `rock`){
+                numWin++;
                 console.log("You win!");
             } else if (playerSelection === `paper` && computerSelection === `scissors`){
                 console.log("You lose!");
             } else if (playerSelection === `scissors` && computerSelection === `paper`){
+                numWin++;
                 console.log("You win!");
             } else if (playerSelection === `scissors` && computerSelection === `rock`){
                 console.log("You lose!");
@@ -45,9 +53,12 @@
             }
         }
 
-
-        playGame();
-
+        let i = 0; 
+        while ( i < numPlay){
+            playGame();
+            i++;
+        }
+        console.log(`You have won ${numWin} rounds`)
 
         </script>
     
