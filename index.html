@@ -11,35 +11,41 @@
         let playerSelection;
         let computerSelection;
 
+
         function computerPlay() {
             const selections = [`rock`, `paper`, `scissors`];
-            return selections[Math.random() * selections.length]
+            // Choose random number between 0-2
+            let maxNum = selections.length;
+            let randomIndex = Math.floor((Math.random() * maxNum));
+            return selections[randomIndex];
         }
 
         function playGame() {
-            playerSelection = prompt(`Rock, paper, or scissors?`).toLowerCase();
+            playerSelection = prompt(`Rock, paper, or scissors?`).toLowerCase().trim();
+            console.log(`You have selected ${playerSelection}`);
             computerSelection = computerPlay();
+            console.log(`Computer has selected ${computerSelection}`)
 
             if (playerSelection === computerSelection) {
-                console.log("Tie! Play again")
+                console.log("Tie! Play again");
             } else if (playerSelection === `rock` && computerSelection === 'scissors'){
-                console.log("You win!")
+                console.log("You win!");
             } else if (playerSelection === `rock` && computerSelection === `paper`){
-                console.log("You lose!")
+                console.log("You lose!");
             } else if (playerSelection === `paper` && computerSelection === `rock`){
-                console.log("You win!")
+                console.log("You win!");
             } else if (playerSelection === `paper` && computerSelection === `scissors`){
-                console.log("You lose!")
+                console.log("You lose!");
             } else if (playerSelection === `scissors` && computerSelection === `paper`){
-                console.log("You win!")
+                console.log("You win!");
             } else if (playerSelection === `scissors` && computerSelection === `rock`){
-                console.log("You lose!")
+                console.log("You lose!");
             } else {
-                console.log("Try again")
+                console.log("Try again");
             }
         }
 
-        // console.log(playGame());
+
         playGame();
 
 
